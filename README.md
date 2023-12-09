@@ -7,6 +7,7 @@ coisas estudadas em separado, como UML, POO,SGBD, SQL.
 ## O Objetivo é colocar em prática os conceitos listados abaixo:
 * POO - Polimorfismo, Herança, Encapsulamento.
 * Arquitetura em camadas - MVC
+* Singleton
 * Banco de dados relacional 
 * Criptografia (Ainda preciso aprender sobre para esse projeto)
 
