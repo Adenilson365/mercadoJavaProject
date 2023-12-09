@@ -6,7 +6,7 @@ import br.com.adenilson.mercado.core.dao.ProdutoDao;
 
 /**
  *
- * @author Adenilson Konzelmann Alves
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class ProdutoService {
     

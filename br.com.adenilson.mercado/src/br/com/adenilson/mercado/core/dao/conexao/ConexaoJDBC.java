@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Adenilson
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class ConexaoJDBC {
 

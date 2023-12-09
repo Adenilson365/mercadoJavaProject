@@ -3,7 +3,7 @@ package br.com.adenilson.mercado.core.entity;
 
 /**
  *
- * @author Adenilson Konzelmann
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class ProdutoEntity {
     private int id;

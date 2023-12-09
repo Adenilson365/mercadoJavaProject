@@ -11,8 +11,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Pichau
+ * 
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class TelaLogin extends javax.swing.JFrame {
 

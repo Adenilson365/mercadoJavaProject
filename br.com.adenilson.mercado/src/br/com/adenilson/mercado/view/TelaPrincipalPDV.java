@@ -5,8 +5,8 @@
 package br.com.adenilson.mercado.view;
 
 /**
- *
- * @author Pichau
+ * 
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class TelaPrincipalPDV extends javax.swing.JFrame {
 

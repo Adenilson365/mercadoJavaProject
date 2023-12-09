@@ -2,7 +2,10 @@ package br.com.adenilson.mercado.core.dao;
 
 
 
-
+/**
+ * 
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
+ */
 
 import br.com.adenilson.mercado.core.dao.conexao.ConexaoJDBC;
 import br.com.adenilson.mercado.core.entity.UserEntity;

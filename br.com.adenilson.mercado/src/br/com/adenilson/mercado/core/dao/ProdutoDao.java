@@ -10,7 +10,7 @@ import br.com.adenilson.mercado.core.entity.ProdutoEntity;
 
 /**
  *
- * @author Pichau
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class ProdutoDao {
     public void salvarProduto(ProdutoEntity produto){

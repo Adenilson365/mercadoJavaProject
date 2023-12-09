@@ -8,8 +8,8 @@ import br.com.adenilson.mercado.view.TelaLogin;
 
 
 /**
- *
- * @author Adenilson Konzelmann Alves
+ * 
+ * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class Principal {
 
