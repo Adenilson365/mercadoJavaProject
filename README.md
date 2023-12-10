@@ -17,6 +17,4 @@ coisas estudadas em separado, como UML, POO,SGBD, SQL.
 * JavaSwing
 
 ### Diagrama de Casos de Uso:
-![Diagrama de casos de Uso]()
-
 <img src="https://github.com/Adenilson365/mercadoJavaProject/tree/main/br.com.adenilson.mercado/src/br/com/adenilson/mercado/assets/useCaseDiagram.png)" alt="Diagrama de casos de uso">
