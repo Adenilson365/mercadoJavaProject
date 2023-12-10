@@ -15,3 +15,6 @@ coisas estudadas em separado, como UML, POO,SGBD, SQL.
 * Java
 * MySQL
 * JavaSwing
+
+### Diagrama de Casos de Uso:
+![Diagrama de casos de Uso](https://github.com/Adenilson365/mercadoJavaProject/tree/main/br.com.adenilson.mercado/src/br/com/adenilson/mercado/assets/useCaseDiagram.png)
