@@ -117,7 +117,9 @@ public class TelaLogin extends javax.swing.JFrame {
         user.setUserPassword(jTPassword.getText());
         if(userController.verificaLogin(user).next()){
             dispose();
-            TelaPrincipalPDV  tp = new TelaPrincipalPDV();
+            //TelaPrincipalPDV  tp = new TelaPrincipalPDV();
+            //tp.setVisible(true);
+            TelaPdvSelect tp = new TelaPdvSelect();
             tp.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Usuário ou Senha Inválidos");
