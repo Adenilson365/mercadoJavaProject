@@ -1,7 +1,9 @@
 
 package br.com.adenilson.mercado;
 
+import br.com.adenilson.mercado.core.controller.PdvController;
 import br.com.adenilson.mercado.core.controller.ProdutoController;
+import br.com.adenilson.mercado.core.entity.PdvEntity;
 import br.com.adenilson.mercado.core.entity.ProdutoEntity;
 import br.com.adenilson.mercado.view.TelaLogin;
 
@@ -24,6 +26,9 @@ public class Principal {
         
         TelaLogin tela = new TelaLogin();
         tela.setVisible(true);
+        
+        
+        
         
 
         
