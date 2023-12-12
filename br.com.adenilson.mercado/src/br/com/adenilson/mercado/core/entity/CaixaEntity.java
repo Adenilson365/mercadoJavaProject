@@ -22,6 +22,7 @@ public class CaixaEntity {
     public CaixaEntity(UserEntity operadorPdv, PdvEntity pdv) {
         this.operadorPdv = operadorPdv;
         this.pdv = pdv;
+        saldoInicial = pdv.getCash();
     }
 
     public int getId() {

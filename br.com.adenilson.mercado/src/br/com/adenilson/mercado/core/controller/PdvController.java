@@ -1,6 +1,7 @@
 
 package br.com.adenilson.mercado.core.controller;
 
+import br.com.adenilson.mercado.core.entity.PdvEntity;
 import br.com.adenilson.mercado.core.service.PdvService;
 import java.sql.ResultSet;
 /**
@@ -15,4 +16,9 @@ public class PdvController {
         return pdvService.consultaPdv();
     }
     
+    public PdvEntity validaPdv(PdvEntity pdv){
+        PdvService pdvService = new PdvService();
+        pdvService.validaPdv(pdv);
+        return pdv;
+    }
 }

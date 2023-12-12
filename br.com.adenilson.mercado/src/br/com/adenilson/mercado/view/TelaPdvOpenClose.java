@@ -1,6 +1,9 @@
 
 package br.com.adenilson.mercado.view;
 
+import br.com.adenilson.mercado.core.entity.PdvEntity;
+import br.com.adenilson.mercado.core.entity.UserEntity;
+
 /**
  *
  * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
@@ -13,6 +16,14 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
     public TelaPdvOpenClose() {
         initComponents();
     }
+    
+    public TelaPdvOpenClose(UserEntity user,PdvEntity pdv){
+        initComponents();
+        System.out.println(pdv.getCash());
+        jtValorGaveta.setText(String.format("%.2f",pdv.getCash()));
+        jtValorGaveta.setEditable(false);
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -24,18 +35,30 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jtValorGaveta = new javax.swing.JTextField();
+        jBConfirmarAbertura = new javax.swing.JButton();
+        jBCancelarAbertura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Valor da Gaveta");
+        jLabel1.setText("Valor da Gaveta:");
 
-        jTextField1.setText("valor gaveta");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtValorGaveta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jtValorGaveta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jtValorGaveta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtValorGavetaActionPerformed(evt);
             }
         });
+
+        jBConfirmarAbertura.setText("Confirmar");
+        jBConfirmarAbertura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConfirmarAberturaActionPerformed(evt);
+            }
+        });
+
+        jBCancelarAbertura.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,25 +68,41 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBConfirmarAbertura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBCancelarAbertura))
+                    .addComponent(jtValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(134, 134, 134)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(201, Short.MAX_VALUE))
+                    .addComponent(jtValorGaveta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBConfirmarAbertura)
+                    .addComponent(jBCancelarAbertura))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtValorGavetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtValorGavetaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtValorGavetaActionPerformed
+
+    private void jBConfirmarAberturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConfirmarAberturaActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        TelaPrincipalPDV tp = new TelaPrincipalPDV();
+        tp.setVisible(true);
+    }//GEN-LAST:event_jBConfirmarAberturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,7 +141,9 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBCancelarAbertura;
+    private javax.swing.JButton jBConfirmarAbertura;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jtValorGaveta;
     // End of variables declaration//GEN-END:variables
 }

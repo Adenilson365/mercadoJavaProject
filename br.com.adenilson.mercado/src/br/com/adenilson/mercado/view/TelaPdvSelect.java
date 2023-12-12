@@ -6,11 +6,10 @@ package br.com.adenilson.mercado.view;
 
 import br.com.adenilson.mercado.core.controller.PdvController;
 import br.com.adenilson.mercado.core.entity.PdvEntity;
+import br.com.adenilson.mercado.core.entity.UserEntity;
 import javax.swing.table.DefaultTableModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,22 +17,31 @@ import java.util.logging.Logger;
  */
 public class TelaPdvSelect extends javax.swing.JFrame {
 
+    UserEntity user;
+
+    public TelaPdvSelect() {
+    }
+
+    ;
     /**
      * Creates new form TelaPdvSelect
+     * @param user
      */
-    public TelaPdvSelect() {
+    public TelaPdvSelect(UserEntity user) {
+        this.user = user;
         initComponents();
         PdvController pdc = new PdvController();
+
         try {
-        ResultSet rs = pdc.consultaPdv();
-        DefaultTableModel dtm = (DefaultTableModel) jTablePdv.getModel();
-        rs.next();
-        do{
-        Object[] dados = {rs.getInt("pdvId"),rs.getString("pdvName"),rs.getBoolean("status"),rs.getDate("dataStatus")};
-        dtm.addRow(dados);
-        }while(rs.next());
+            ResultSet rs = pdc.consultaPdv();
+            DefaultTableModel dtm = (DefaultTableModel) jTablePdv.getModel();
+            rs.next();
+            do {
+                Object[] dados = {rs.getInt("pdvId"), rs.getString("pdvName"), rs.getBoolean("status"), rs.getDate("dataStatus")};
+                dtm.addRow(dados);
+            } while (rs.next());
         } catch (SQLException ex) {
-           System.out.println("Erro!!");
+            System.out.println("Erro!!");
         }
     }
 
@@ -79,6 +87,11 @@ public class TelaPdvSelect extends javax.swing.JFrame {
                 "PDV", "Situação", "Data", "Usuário"
             }
         ));
+        jTablePdv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePdvMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTablePdv);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,15 +127,28 @@ public class TelaPdvSelect extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        
+
+        System.out.print(jTablePdv.getSelectedRow());
+        int idpdv = (int) jTablePdv.getValueAt(jTablePdv.getSelectedRow(), 0);
+        PdvEntity pdv = new PdvEntity();
+        pdv.setId(idpdv);
+        PdvController pdvc = new PdvController();
+        pdv = pdvc.validaPdv(pdv);
+        TelaPdvOpenClose tpoc = new TelaPdvOpenClose(user, pdv);
+        dispose();
+        tpoc.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTablePdvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePdvMouseClicked
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_jTablePdvMouseClicked
 
     /**
      * @param args the command line arguments
