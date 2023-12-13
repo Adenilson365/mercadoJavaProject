@@ -19,6 +19,8 @@ public class CaixaEntity {
     private Date dataInicial;
     private Date dataFinal;
 
+    
+    public CaixaEntity(){};
     public CaixaEntity(UserEntity operadorPdv, PdvEntity pdv) {
         this.operadorPdv = operadorPdv;
         this.pdv = pdv;

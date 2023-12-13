@@ -4,7 +4,9 @@
  */
 package br.com.adenilson.mercado.view;
 
+import br.com.adenilson.mercado.core.controller.CaixaController;
 import br.com.adenilson.mercado.core.controller.PdvController;
+import br.com.adenilson.mercado.core.entity.CaixaEntity;
 import br.com.adenilson.mercado.core.entity.PdvEntity;
 import br.com.adenilson.mercado.core.entity.UserEntity;
 import javax.swing.table.DefaultTableModel;
@@ -31,13 +33,13 @@ public class TelaPdvSelect extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         PdvController pdc = new PdvController();
-
+        //refatorar para trazer uma lista de pdv entity, e então não preciso do método validapdv
         try {
             ResultSet rs = pdc.consultaPdv();
             DefaultTableModel dtm = (DefaultTableModel) jTablePdv.getModel();
             rs.next();
             do {
-                Object[] dados = {rs.getInt("pdvId"), rs.getString("pdvName"), rs.getBoolean("status"), rs.getDate("dataStatus")};
+                Object[] dados = {rs.getString("pdvName"), rs.getBoolean("status"), rs.getDate("dataStatus"), rs.getString("userName")};
                 dtm.addRow(dados);
             } while (rs.next());
         } catch (SQLException ex) {
@@ -129,14 +131,29 @@ public class TelaPdvSelect extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         System.out.print(jTablePdv.getSelectedRow());
-        int idpdv = (int) jTablePdv.getValueAt(jTablePdv.getSelectedRow(), 0);
+        String pdvName = (String) jTablePdv.getValueAt(jTablePdv.getSelectedRow(), 0);
         PdvEntity pdv = new PdvEntity();
-        pdv.setId(idpdv);
+        pdv.setPdvName(pdvName);
         PdvController pdvc = new PdvController();
         pdv = pdvc.validaPdv(pdv);
-        TelaPdvOpenClose tpoc = new TelaPdvOpenClose(user, pdv);
-        dispose();
-        tpoc.setVisible(true);
+        if (pdv.isOpen()) {
+            TelaPrincipalPDV tpp = new TelaPrincipalPDV();
+            dispose();
+            tpp.setVisible(true);
+            System.out.println("ID:"+pdv.getId()+"  "+pdv.getPdvName());
+            CaixaEntity caixa = new CaixaEntity();
+            caixa.setId(pdv.getIdCaixa());
+            CaixaController cc = new CaixaController();
+            cc.consultaCaixa(caixa);
+            System.out.println(caixa.getSaldoInicial());
+            
+        } else {
+            TelaPdvOpenClose tpoc = new TelaPdvOpenClose(user, pdv);
+            dispose();
+            tpoc.setVisible(true);
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

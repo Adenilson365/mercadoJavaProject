@@ -14,6 +14,16 @@ public class PdvEntity {
     private double saldo;
     private boolean open;
 
+    public int getIdCaixa() {
+        return idCaixa;
+    }
+
+    public void setIdCaixa(int idCaixa) {
+        this.idCaixa = idCaixa;
+    }
+    private int idCaixa;
+
+
     public String getPdvName() {
         return pdvName;
     }
