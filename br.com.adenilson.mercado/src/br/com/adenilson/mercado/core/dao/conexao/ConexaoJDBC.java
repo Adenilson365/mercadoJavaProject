@@ -32,8 +32,7 @@ public class ConexaoJDBC {
                 return conn;
             }
         } catch (SQLException e) {
-            System.out.println("Erro Conexao");
-            //JOptionPane.showMessageDialog(null, "Houve um erro de Conexão!");
+            JOptionPane.showMessageDialog(null, "Houve um erro de Conexão!");
             return null;
         }
     }

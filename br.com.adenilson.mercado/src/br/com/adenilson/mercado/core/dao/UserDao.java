@@ -1,7 +1,5 @@
 package br.com.adenilson.mercado.core.dao;
 
-
-
 /**
  * 
  * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>

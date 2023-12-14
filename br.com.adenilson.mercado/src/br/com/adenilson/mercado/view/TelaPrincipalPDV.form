@@ -59,12 +59,16 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField3" max="32767" attributes="0"/>
+                          <Component id="jTProdutoBarras" max="32767" attributes="0"/>
                           <Component id="jTextField4" max="32767" attributes="0"/>
                           <Component id="jTextField5" alignment="0" pref="476" max="32767" attributes="0"/>
                           <Component id="jTextField7" alignment="1" max="32767" attributes="0"/>
                           <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
                           <Component id="LeituraAtual" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jBConsultaProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -95,8 +99,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextField6" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="133" max="32767" attributes="0"/>
+                      <Component id="jTProdutoBarras" min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="jBConsultaProduto" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -191,13 +197,17 @@
         <Property name="text" type="java.lang.String" value="Total Compra"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="jTProdutoBarras">
       <Properties>
         <Property name="text" type="java.lang.String" value="Barras"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[314, 44]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTProdutoBarrasActionPerformed"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="jTProdutoBarrasPropertyChange"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4">
       <Properties>
@@ -223,6 +233,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField7ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBConsultaProduto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Consulta Produto:"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBConsultaProdutoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

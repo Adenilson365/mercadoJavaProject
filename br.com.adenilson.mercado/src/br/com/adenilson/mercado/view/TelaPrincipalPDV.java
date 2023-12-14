@@ -1,8 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package br.com.adenilson.mercado.view;
+
+import br.com.adenilson.mercado.core.controller.ProdutoController;
+import br.com.adenilson.mercado.core.entity.ProdutoEntity;
 
 /**
  * 
@@ -14,7 +14,7 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
      * Creates new form TelaPrincipal
      */
     public TelaPrincipalPDV() {
-        initComponents();
+        initComponents();  
     }
 
     /**
@@ -34,11 +34,12 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         LeituraAtual = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTProdutoBarras = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
+        jBConsultaProduto = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,8 +92,18 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
 
         jTextField2.setText("Total Compra");
 
-        jTextField3.setText("Barras");
-        jTextField3.setMinimumSize(new java.awt.Dimension(314, 44));
+        jTProdutoBarras.setText("Barras");
+        jTProdutoBarras.setMinimumSize(new java.awt.Dimension(314, 44));
+        jTProdutoBarras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTProdutoBarrasActionPerformed(evt);
+            }
+        });
+        jTProdutoBarras.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTProdutoBarrasPropertyChange(evt);
+            }
+        });
 
         jTextField4.setText("VLR Unitario");
 
@@ -112,6 +123,13 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
             }
         });
 
+        jBConsultaProduto.setText("Consulta Produto:");
+        jBConsultaProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultaProdutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,12 +143,15 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTProdutoBarras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField4)
                             .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                             .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextField6)
-                            .addComponent(LeituraAtual))
+                            .addComponent(LeituraAtual)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jBConsultaProduto)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
@@ -155,8 +176,10 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 133, Short.MAX_VALUE))
+                        .addComponent(jTProdutoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jBConsultaProduto)
+                        .addGap(0, 52, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,6 +208,29 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTProdutoBarrasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTProdutoBarrasPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTProdutoBarrasPropertyChange
+
+    private void jTProdutoBarrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTProdutoBarrasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTProdutoBarrasActionPerformed
+
+    private void jBConsultaProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultaProdutoActionPerformed
+        // TODO add your handling code here:
+        ProdutoController pc = new ProdutoController();
+        ProdutoEntity p = new ProdutoEntity();
+        
+        p.setCodigoDeBarras(this.jTProdutoBarras.getText());
+        pc.consultaProduto(p);
+        
+        System.out.println("Barras: "+ p.getCodigoDeBarras());
+        System.out.println("Nome: "+ p.getNome());
+        System.out.println("Estoque: "+ p.getEstoque());
+        System.out.println("Preço: "+ p.getPrecoVenda());
+       
+    }//GEN-LAST:event_jBConsultaProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,14 +270,15 @@ public class TelaPrincipalPDV extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField LeituraAtual;
+    private javax.swing.JButton jBConsultaProduto;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTProdutoBarras;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;

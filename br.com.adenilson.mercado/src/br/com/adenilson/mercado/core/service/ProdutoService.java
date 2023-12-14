@@ -10,11 +10,8 @@ import br.com.adenilson.mercado.core.dao.ProdutoDao;
  */
 public class ProdutoService {
     
-    public void salvarProduto(ProdutoEntity produto){
-        System.out.println("Passando pelo Service");
+ public ProdutoEntity consultaProduto(ProdutoEntity p){
         ProdutoDao produtoDao = new ProdutoDao();
-        produtoDao.salvarProduto(produto);
-      
-    }
-    
+        return produtoDao.consultaProduto(p);
+    }   
 }

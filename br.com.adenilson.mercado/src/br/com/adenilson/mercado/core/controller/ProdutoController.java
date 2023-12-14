@@ -12,12 +12,8 @@ import br.com.adenilson.mercado.core.service.ProdutoService;
  */
 public class ProdutoController {
 
-    public void salvarProduto(ProdutoEntity produto) {
-        System.out.println("Passando pelo controller");
+    public ProdutoEntity consultaProduto(ProdutoEntity p) {
         ProdutoService produtoService = new ProdutoService();
-        produtoService.salvarProduto(produto);
-        
-        
-    }
-    
+        return produtoService.consultaProduto(p);
+    } 
 }
