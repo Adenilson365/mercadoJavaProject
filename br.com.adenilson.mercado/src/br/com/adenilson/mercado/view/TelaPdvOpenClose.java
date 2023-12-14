@@ -1,6 +1,8 @@
 
 package br.com.adenilson.mercado.view;
 
+import br.com.adenilson.mercado.core.controller.CaixaController;
+import br.com.adenilson.mercado.core.entity.CaixaEntity;
 import br.com.adenilson.mercado.core.entity.PdvEntity;
 import br.com.adenilson.mercado.core.entity.UserEntity;
 
@@ -9,7 +11,8 @@ import br.com.adenilson.mercado.core.entity.UserEntity;
  * @author Adenilson Konzelmann Alves <https://github.com/Adenilson365>
  */
 public class TelaPdvOpenClose extends javax.swing.JFrame {
-
+    UserEntity user;
+    PdvEntity pdv;
     /**
      * Creates new form PdvOpenClose
      */
@@ -19,6 +22,8 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
     
     public TelaPdvOpenClose(UserEntity user,PdvEntity pdv){
         initComponents();
+        this.user = user;
+        this.pdv = pdv;
         System.out.println(pdv.getCash());
         jtValorGaveta.setText(String.format("%.2f",pdv.getCash()));
         jtValorGaveta.setEditable(false);
@@ -101,7 +106,14 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         TelaPrincipalPDV tp = new TelaPrincipalPDV();
+        CaixaController cc = new CaixaController();
+        System.out.println(this.user.getId());
+        CaixaEntity caixa = cc.abrirCaixa(user, pdv);
+        
+        System.out.println(caixa.getId());
+        
         tp.setVisible(true);
+        
     }//GEN-LAST:event_jBConfirmarAberturaActionPerformed
 
     /**

@@ -83,5 +83,11 @@ public class CaixaEntity {
         this.dataFinal = dataFinal;
     }
     
+    public UserEntity getUser(){
+        return operadorPdv;
+    }
     
+    public PdvEntity getPdv(){
+        return pdv;
+    }
 }

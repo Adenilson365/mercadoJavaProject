@@ -9,6 +9,7 @@ import br.com.adenilson.mercado.core.controller.UserController;
 import br.com.adenilson.mercado.core.entity.UserEntity;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  * 
@@ -115,9 +116,12 @@ public class TelaLogin extends javax.swing.JFrame {
         UserEntity user = new UserEntity();
         user.setUserName(jTLogin.getText());
         user.setUserPassword(jTPassword.getText());
-        if(userController.verificaLogin(user).next()){
+        ResultSet rs = userController.verificaLogin(user);
+        if(rs.next()){
             dispose();
+            user.setId(rs.getInt("userID"));
             TelaPdvSelect tp = new TelaPdvSelect(user);
+            System.out.println("Login:"+user.getId());
             tp.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Usuário ou Senha Inválidos");

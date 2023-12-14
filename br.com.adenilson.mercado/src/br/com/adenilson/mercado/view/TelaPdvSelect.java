@@ -149,6 +149,7 @@ public class TelaPdvSelect extends javax.swing.JFrame {
             
         } else {
             TelaPdvOpenClose tpoc = new TelaPdvOpenClose(user, pdv);
+            System.out.println("select:"+this.user.getId());
             dispose();
             tpoc.setVisible(true);
         }

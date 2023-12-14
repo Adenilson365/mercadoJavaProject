@@ -7,6 +7,8 @@ package br.com.adenilson.mercado.core.service;
 
 import br.com.adenilson.mercado.core.dao.CaixaDao;
 import br.com.adenilson.mercado.core.entity.CaixaEntity;
+import br.com.adenilson.mercado.core.entity.PdvEntity;
+import br.com.adenilson.mercado.core.entity.UserEntity;
 
 /**
  *
@@ -18,4 +20,10 @@ public class CaixaService {
         CaixaDao caixaDao = new CaixaDao();
         return caixaDao.consultaCaixa(caixa);
     }
+        
+        public CaixaEntity abrirCaixa(UserEntity user, PdvEntity pdv){
+            CaixaDao caixaDao = new CaixaDao();
+            return caixaDao.abrirCaixa(user, pdv);
+            
+        }
 }
