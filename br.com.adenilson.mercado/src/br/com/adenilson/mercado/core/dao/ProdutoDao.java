@@ -27,7 +27,7 @@ public class ProdutoDao {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Houve um erro ao consultar produto no BD, ProdutoDAO!");
             System.err.println(e);
-            return null;
         }
+            return null;
     }   
 }
