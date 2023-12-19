@@ -18,3 +18,6 @@ coisas estudadas em separado, como UML, POO,SGBD, SQL.
 
 ### Diagrama de Casos de Uso:
 ![Diagrama de casos de Uso](https://github.com/Adenilson365/mercadoJavaProject/tree/main/br.com.adenilson.mercado/src/br/com/adenilson/mercado/assets/useCaseDiagram.png)
+
+### Diagrama de Classes: 
+![Diagrama de Classses](https://github.com/Adenilson365/mercadoJavaProject/tree/main/br.com.adenilson.mercado/src/br/com/adenilson/mercado/assets/classDiagram.jpg)
