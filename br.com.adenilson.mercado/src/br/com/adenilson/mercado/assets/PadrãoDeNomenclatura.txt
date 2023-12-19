@@ -1,0 +1,14 @@
+Padrão sql:
+1 - Comandos em letras maiúsculas;
+2 - nomes de elementos em letras minúculas;
+3 - nome composto -> tudo em minúscula separados por "_";
+4 - nome das colunas sem o nome da tabela;
+5 - definir constraints noemas de PK, FK e regras específicas do projeto;
+6 - valores de inserções em letras maiúsculas
+
+Padrão Java
+usar: https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html
+
+- Classe Pascal Case (NomeClasse)
+- Demais elementos camelCase (nomeElemento)
+- Constantes tudo em maiúscula SCREAMING_SNAKE_CASE (NOME_CONSTANTE)

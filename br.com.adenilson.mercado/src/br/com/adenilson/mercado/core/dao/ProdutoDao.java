@@ -23,6 +23,7 @@ public class ProdutoDao {
             p.setEstoque(rs.getFloat("estoque"));
             p.setNome(rs.getString("nomeproduto"));
             p.setPrecoVenda(rs.getFloat("precovenda"));
+            p.setRestringirEstoque(rs.getBoolean("restringirEstoqueNegativo"));
             return p;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Houve um erro ao consultar produto no BD, ProdutoDAO!");

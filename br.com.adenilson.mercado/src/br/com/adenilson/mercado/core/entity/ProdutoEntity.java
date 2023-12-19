@@ -11,6 +11,24 @@ public class ProdutoEntity {
     private String codigoDeBarras;
     private float precoVenda;
     private float estoque;
+    private boolean restringirEstoque;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean getRestringirEstoque() {
+        return restringirEstoque;
+    }
+
+    public void setRestringirEstoque(boolean restringirEstoque) {
+        this.restringirEstoque = restringirEstoque;
+    }
+
 
     public String getNome() {
         return nome;

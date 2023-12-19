@@ -1,0 +1,23 @@
+/*
+Padrão de Nomenclatura
+1 - Comandos em letras maiúsculas;
+2 - nomes de elementos em letras minúsculas;
+3 - nome composto -> tudo em minúscula separados por "_";
+4 - nome das colunas sem o nome da tabela;
+5 - definir constraints noemas de PK, FK e regras específicas do projeto;
+6 - valos de inserções em letras miúsculas
+
+*/
+
+/*triggers*/
+
+/*Altera o pdv para aberto quando aberto um novo caixa*/
+DELIMITER //
+CREATE TRIGGER update_pdv AFTER INSERT ON caixa
+FOR EACH ROW
+BEGIN
+UPDATE pdv SET status = TRUE WHERE pdvId = NEW.pdvId;
+UPDATE pdv SET caixaId = NEW.caixaID WHERE pdvId = NEW.pdvId;
+END;
+//
+DELIMITER ;

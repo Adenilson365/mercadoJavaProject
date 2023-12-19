@@ -110,7 +110,7 @@ public class TelaPdvOpenClose extends javax.swing.JFrame {
         System.out.println(this.user.getId());
         CaixaEntity caixa = cc.abrirCaixa(user, pdv);
         
-        System.out.println(caixa.getId());
+        System.out.println("CaixaAbertoID:"+caixa.getId());
         
         tp.setVisible(true);
         

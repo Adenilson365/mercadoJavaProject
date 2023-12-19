@@ -13,18 +13,18 @@ public class ProdutoService {
         ProdutoDao produtoDao = new ProdutoDao();
         p = produtoDao.consultaProduto(p);
         return RestricaoEstoqueNegativo(p);
-
     }
 
     private ProdutoEntity RestricaoEstoqueNegativo(ProdutoEntity p) {
         if (p != null) {
-            if (p.getEstoque() < 1.0f) {
+            if (p.getEstoque() < 1.0f && p.getRestringirEstoque()) {
+                System.out.println("ProdutoNegativo!");
                 p = null;
                 return p;
+                
             } else {
                 return p;
             }
-
         }
         return p;
     }
