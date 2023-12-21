@@ -9,6 +9,15 @@ Padrão de Nomenclatura
 
 */
 
+
+/*Criando Tables*/
+
+CREATE TABLE tipo_pgto (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(50) NOT NULL UNIQUE);
+
+INTER INTO tipo_pgto(name) VALUES ("DINEHIRO");
+INSERT INTO tipo_pgto(name) VALUES ("TEF_GENERICO");
 /*triggers*/
 
 /*Altera o pdv para aberto quando aberto um novo caixa*/

@@ -14,7 +14,17 @@ public class VendaEntity {
     private UserEntity operadorPDV;
     private ClienteEntity cliente;
     private Double valorVenda;
-    private List<ProdutoEntity> produtos = new ArrayList<ProdutoEntity>(); 
+    private List<ItensVendaEntity> produtos = new ArrayList<ItensVendaEntity>(); 
+    private PgtoEntity pgto;
+
+    public VendaEntity() {
+    }
+
+    public VendaEntity(UserEntity operadorPDV, ClienteEntity cliente, PgtoEntity pgto) {
+        this.operadorPDV = operadorPDV;
+        this.cliente = cliente;
+        this.pgto = pgto;
+    }
 
     public int getId() {
         return id;
@@ -55,14 +65,11 @@ public class VendaEntity {
     public void setValorVenda(Double valorVenda) {
         this.valorVenda = valorVenda;
     }
-    
-    public void removeProduct(ProdutoEntity p){
-        produtos.remove(p);
-    }
-    
-    public void addProdutct(ProdutoEntity p ){
-        produtos.add(p);
-    }
    
-    
+    public void addItem(ItensVendaEntity item){
+        produtos.add(item);
+    }
+        public void removeItem(ItensVendaEntity item){
+        produtos.remove(item);
+    }
 }
