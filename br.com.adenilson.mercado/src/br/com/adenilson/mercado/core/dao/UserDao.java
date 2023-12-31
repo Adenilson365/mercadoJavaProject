@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 
 public class UserDao {
   public ResultSet verificaLogin(UserEntity user){
-      String sql = "SELECT * FROM USER WHERE USERNAME = ? AND USERPASSWORD = ?";
+      String sql = "SELECT * FROM user WHERE name = ? AND password = ?";
       PreparedStatement ps ;
       
       try {

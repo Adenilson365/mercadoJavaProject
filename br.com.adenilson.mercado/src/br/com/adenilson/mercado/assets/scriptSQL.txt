@@ -1,5 +1,7 @@
+/*---------------------PATTERN---------------------*/
+
 /*
-Padrão de Nomenclatura
+Nomenclatura
 1 - Comandos em letras maiúsculas;
 2 - nomes de elementos em letras minúsculas;
 3 - nome composto -> tudo em minúscula separados por "_";
@@ -10,23 +12,91 @@ Padrão de Nomenclatura
 */
 
 
-/*Criando Tables*/
+/*---------------------CREATE---------------------*/
+
+/*Tabela produto*/
+
+CREATE TABLE `produto` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `codigo_barras` varchar(45) DEFAULT NULL,
+  `preco_venda` float NOT NULL,
+  `estoque` float NOT NULL DEFAULT '0',
+  `restringir_estoque_negativo` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `codigoBarras_UNIQUE` (`codigo_barras`)
+)
+
+/*Tabela caixa*/
+CREATE TABLE `caixa` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `pdv_id` int DEFAULT NULL,
+  `saldo_atual` double DEFAULT NULL,
+  `data_inicial` datetime DEFAULT NULL,
+  `data_final` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `caixa_ibfk_1` (`user_id`),
+  KEY `caixa_ibfk_2` (`pdv_id`),
+  CONSTRAINT `caixa_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `caixa_ibfk_2` FOREIGN KEY (`pdv_id`) REFERENCES `pdv` (`id`)
+)
+
+/*Tabela pdv*/
+CREATE TABLE `pdv` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `data_status` date DEFAULT NULL,
+  `saldo` double DEFAULT NULL,
+  `caixa_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_caixa_pdv` (`caixa_id`),
+  CONSTRAINT `fk_caixa_pdv` FOREIGN KEY (`caixa_id`) REFERENCES `caixa` (`id`)
+) 
+
+/*Tabela user*/
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+)
 
 CREATE TABLE tipo_pgto (
 id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(50) NOT NULL UNIQUE);
 
-INTER INTO tipo_pgto(name) VALUES ("DINEHIRO");
-INSERT INTO tipo_pgto(name) VALUES ("TEF_GENERICO");
-/*triggers*/
+
+/*---------------------TRIGGERS---------------------*/
 
 /*Altera o pdv para aberto quando aberto um novo caixa*/
 DELIMITER //
 CREATE TRIGGER update_pdv AFTER INSERT ON caixa
 FOR EACH ROW
 BEGIN
-UPDATE pdv SET status = TRUE WHERE pdvId = NEW.pdvId;
-UPDATE pdv SET caixaId = NEW.caixaID WHERE pdvId = NEW.pdvId;
+UPDATE pdv SET status = TRUE WHERE id = NEW.pdv_id;
+UPDATE pdv SET caixa_id = NEW.id WHERE pdv.id = NEW.pdv_id;
 END;
 //
 DELIMITER ;
+
+/*Altera o pdv para fechado quando o caixa � fechado
+o caixa altera para fechado quando uma data final � atribuida.
+*/
+DELIMITER //
+CREATE TRIGGER update_pdv_fechamento AFTER UPDATE ON caixa
+FOR EACH ROW
+BEGIN
+    IF NEW.data_final <> OLD.data_final THEN
+    UPDATE pdv SET status = FALSE WHERE pdv.caixa_id = OLD.id;
+    END IF;
+END;
+//
+DELIMITER ;
+
+
+/*---------------------INSERT---------------------*/
+INTER INTO tipo_pgto(name) VALUES ("DINEHIRO");
+INSERT INTO tipo_pgto(name) VALUES ("TEF_GENERICO");

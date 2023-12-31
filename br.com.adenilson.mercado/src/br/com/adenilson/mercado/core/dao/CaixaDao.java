@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 public class CaixaDao {
 
     public CaixaEntity consultaCaixa(CaixaEntity caixa) {
-        String sql = "select * from caixa where caixaId = ?";
+        String sql = "select * from caixa where id = ?";
         PreparedStatement ps;
 
         /*
@@ -39,7 +39,7 @@ public class CaixaDao {
     }
 
     public CaixaEntity abrirCaixa(UserEntity user, PdvEntity pdv) {
-        String sql = "insert into caixa (userID, pdvId, saldo, dataInicial) values (?,?,?, now())";
+        String sql = "insert into caixa (user_id, pdv_id, saldo_atual, data_inicial) values (?,?,?, now())";
         PreparedStatement ps;
 
         try {

@@ -115,7 +115,7 @@ public class TelaLogin extends javax.swing.JFrame {
         ResultSet rs = userController.verificaLogin(user);
         if(rs.next()){
             dispose();
-            user.setId(rs.getInt("userID"));
+            user.setId(rs.getInt("id"));
             TelaPdvSelect tp = new TelaPdvSelect(user);
             System.out.println("Login:"+user.getId());
             tp.setVisible(true);

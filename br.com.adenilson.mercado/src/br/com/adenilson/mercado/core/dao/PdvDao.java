@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 public class PdvDao {
 
     public ResultSet consultaPdv() {
-        String sql = "select pdv.*,user.userName from pdv join caixa on caixa.caixaID = pdv.caixaId join user on caixa.userID = user.userID";
+        String sql = "select pdv.*,user.name from pdv join caixa on caixa.id = pdv.caixa_id join user on caixa.user_id = user.id";
         PreparedStatement ps;
 
         try {
@@ -30,19 +30,19 @@ public class PdvDao {
     }
 
     public PdvEntity validaPdv(PdvEntity pdv) {
-        String sql = "Select * from pdv where pdvName = ?";
+        String sql = "Select * from pdv where name = ?";
         PreparedStatement ps;
         try {
             ps = ConexaoJDBC.getConexao().prepareStatement(sql);
             ps.setString(1, "" + pdv.getPdvName());
             ResultSet rs = ps.executeQuery();
             rs.next();
-            pdv.setId(rs.getInt("pdvId"));
+            pdv.setId(rs.getInt("id"));
             pdv.setOpen(rs.getBoolean("status"));
-            pdv.setPdvName(rs.getString("pdvName"));
+            pdv.setPdvName(rs.getString("name"));
             pdv.setCash(rs.getDouble("saldo"));
-            pdv.setPdvDateStatus(rs.getDate("dataStatus"));
-            pdv.setIdCaixa(rs.getInt("caixaId"));
+            pdv.setPdvDateStatus(rs.getDate("data_status"));
+            pdv.setIdCaixa(rs.getInt("caixa_id"));
 
             return pdv;
         } catch (SQLException e) {

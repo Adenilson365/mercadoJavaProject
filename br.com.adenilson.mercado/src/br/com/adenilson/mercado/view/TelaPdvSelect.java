@@ -36,7 +36,7 @@ public class TelaPdvSelect extends javax.swing.JFrame {
             DefaultTableModel dtm = (DefaultTableModel) jTablePdv.getModel();
             rs.next();
             do {
-                Object[] dados = {rs.getString("pdvName"), rs.getBoolean("status"), rs.getDate("dataStatus"), rs.getString("userName")};
+                Object[] dados = {rs.getString("name"), rs.getBoolean("status"), rs.getDate("data_status"), rs.getString("user.name")};
                 dtm.addRow(dados);
             } while (rs.next());
         } catch (SQLException ex) {
