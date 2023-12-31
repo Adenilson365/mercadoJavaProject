@@ -10,11 +10,15 @@ coisas estudadas em separado, como UML, POO,SGBD, SQL.
 * Singleton
 * Banco de dados relacional 
 * Criptografia (Ainda preciso aprender sobre para esse projeto)
+* Design Pattern
+* GIT e GITHUB (pull, push, brach, commit)
 
 ## Tecnologias Usadas:
 * Java
 * MySQL
 * JavaSwing
+* Gig GitHub
+* NetBeans
 
 ### Diagrama de Casos de Uso:
 ![Diagrama de casos de Uso](https://github.com/Adenilson365/mercadoJavaProject/tree/main/br.com.adenilson.mercado/src/br/com/adenilson/mercado/assets/useCaseDiagram.png)
